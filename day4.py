@@ -52,6 +52,21 @@ if __name__ == '__main__':
 
     number_of_valid_passports = 0
     number_of_valid_passports_strict = 0
+    test_count_1 = test_count_2 = 0
+    with open('input/day4.txt') as f:
+        passports = f.read()
+
+    passports = passports.split('\n\n')
+    for passport in passports:
+        passport = passport.replace('\n', ' ').split(' ')
+        if check_passport(passport):
+            test_count_1 += 1
+            if check_passport_strict(passport):
+                test_count_2 += 1
+    print(f'Test\nPart 1: {test_count_1}\nPart 2: {test_count_2}')
+
+
+
     with open('input/day4.txt') as f:
         single_passport = []
         for line in f:
