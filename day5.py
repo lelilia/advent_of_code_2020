@@ -2,8 +2,8 @@
 import numpy as np
 
 def get_part1(boardingpass):
-    ''''''
-    return int(boardingpass.replace("F", "0").replace("B", "1").replace("L", "0").replace("R", "1"),2)
+    '''get the binary representation of the boardingpass'''
+    return int(boardingpass.replace("F", "0").replace("B", "1").replace("L", "0").replace("R", "1"), 2)
 
 
 if __name__ == '__main__':
