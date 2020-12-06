@@ -1,15 +1,17 @@
 ''' ADVENT OF CODE day 6'''
 
-def number_anyone(block):
-    ...
+def get_count_any(block):
+    '''count the number of unique answers in a block'''
+    return len(set(block.replace('\n', '')))
 
-def number_everyone(block):
+def get_count_all(block):
+    '''count the number of answers that everyone gave in a block'''
     block = block.split('\n')
-    set_of_answers = set(block.pop())
+    set_everyone =  set(block.pop())
     while len(block) > 0:
         this_answer = set(block.pop())
-        set_of_answers = set_of_answers.intersection(this_answer)
-    return len(set_of_answers)
+        set_everyone = set_everyone.intersection(this_answer)
+    return len(set_everyone)
 
 
 if __name__=='__main__':
@@ -17,13 +19,8 @@ if __name__=='__main__':
     with open('input/day6.txt') as f:
         answers = f.read().split('\n\n')
 
-    sum_questions_anyone = 0
-    sum_questions_everyone = 0
+    sum_any = sum(map(get_count_any, answers))
+    sum_all = sum(map(get_count_all, answers))
 
-    for block in answers:
-        sum_questions_anyone += len(set(block.replace('\n','')))
-        sum_questions_everyone += number_everyone(block)
-
-    print(f'Part 1: {sum_questions_anyone}')
-
-    print(f'Part 2: {sum_questions_everyone}')
+    print(f'Part 1: {sum_any}')
+    print(f'Part 2: {sum_all}')
