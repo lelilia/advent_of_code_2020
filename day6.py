@@ -8,10 +8,10 @@ def get_count_any(block):
 
 def get_count_all(block):
     '''count the number of answers that everyone gave in a block'''
-    return len(reduce(lambda x,y: set(x).intersection(set(y)), block.split("\n")))
+    return len(reduce(lambda x, y: set(x).intersection(set(y)), block.split("\n")))
 
 
-if __name__=='__main__':
+if __name__ == '__main__':
 
     with open('input/day6.txt') as f:
         blocks = f.read().split('\n\n')
