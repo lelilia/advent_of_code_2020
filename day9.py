@@ -20,14 +20,15 @@ def find_sequence(array, target):
     '''
     find a sequence in the array that sums up to target
     '''
-    i = 0
-    j = 1
+    i = j = 0
+    current_sum = array[0]
     while j < len(array):
-        current_sum = sum(array[i:j])
         if current_sum > target:
+            current_sum -= array[i]
             i += 1
         elif current_sum < target:
             j += 1
+            current_sum += array[j]
         elif current_sum == target:
             min_val = min(array[i:j])
             max_val = max(array[i:j])
