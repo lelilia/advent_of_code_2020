@@ -1,4 +1,6 @@
 
+
+
 def count_neighbours(board, i, j):
     row_len = len(board)
     col_len = len(board[0])
