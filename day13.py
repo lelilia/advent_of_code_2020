@@ -26,7 +26,6 @@ if __name__ == '__main__':
     start = 0
     stepsize = 1
     for dt, depart in enumerate(departures):
-
         if depart == 'x':
             continue
         depart = int(depart)
